@@ -111,11 +111,13 @@ public:
 
     void empacar(){
         ubicarPaquete();
-        nodoPaquete->paquete->galletasHechas += galletas;   //le agrega una galleta a ese paquete
-        galletas--; //resta las galletas almacenadas;
-        if(nodoPaquete->paquete->galletasHechas == nodoPaquete->paquete->cantidadGalletas){ //si el paquete se lleno incrementa el indice y lo agrega al transporte correspondiente
-            index++;
-            montarTransporte();
+        if (nodoPaquete != NULL) {
+            nodoPaquete->paquete->galletasHechas += galletas;   //le agrega una galleta a ese paquete
+            galletas--; //resta las galletas almacenadas;
+            if(nodoPaquete->paquete->galletasHechas == nodoPaquete->paquete->cantidadGalletas){ //si el paquete se lleno incrementa el indice y lo agrega al transporte correspondiente
+                index++;
+                montarTransporte();
+            }
         }
     }
 

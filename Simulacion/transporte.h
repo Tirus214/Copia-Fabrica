@@ -60,13 +60,15 @@ public:
 
     void entregar(){
         NodoPaquete * tmp = lista->primerNodo;
-        for(int i=0; i<=index; i++){
-            almacen->addPaquete(tmp->paquete);
-            tmp = tmp->siguiente;
+        if (tmp != NULL) {
+            for(int i=0; i<=index; i++){
+                almacen->addPaquete(tmp->paquete);
+                tmp = tmp->siguiente;
+            }
+            index = 0;
+            cantidad = 0;
+            lista = new ListaDobleCircular();
         }
-        index = 0;
-        cantidad = 0;
-        lista = new ListaDobleCircular();
     }
 
     // ==== setters ====
